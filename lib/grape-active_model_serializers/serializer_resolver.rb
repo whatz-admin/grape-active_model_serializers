@@ -85,10 +85,10 @@ module Grape
       end
 
       def resource_class
-        if resource.respond_to?(:klass)
-          resource.klass
-        elsif resource.respond_to?(:to_ary) || resource.respond_to?(:all)
+        if resource.respond_to?(:to_ary) || resource.respond_to?(:all)
           resource.first.class
+        elsif resource.respond_to?(:klass)
+          resource.klass
         else
           resource.class
         end
